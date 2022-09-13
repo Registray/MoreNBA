@@ -9,35 +9,27 @@ import UIKit
 
 class PlayersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    let players: [Player] = [
-        Player(
-            firstname: "LeBron",
-            lastname: "James",
-            team: lakers,
-            position: "SF",
-            height: "6'8''"
-        ),
-        Player(
-            firstname: "Anthony",
-            lastname: "Davis",
-            team: lakers,
-            position: "PF",
-            height: "7'0''"
-        ),
-        Player(
-            firstname: "Jimmy",
-            lastname: "Butler",
-            team: heat,
-            position: "SG",
-            height: "6'6''"
-        ),
-        
-    ]
+    @IBOutlet weak var tableView: UITableView!
+    var players: [Player] = []
+    let apiClient: ApiClient = ApiClientImpl()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Players"
         navigationController?.navigationBar.prefersLargeTitles = true
+        apiClient.getPlayers(completion: {result in
+            DispatchQueue.main.async {
+                switch result {
+                case.success(let players):
+                    self.players = players
+                    self.tableView.reloadData()
+                case.failure:
+                    self.players = []
+                    self.tableView.reloadData()
+                }
+            }
+        })
     }
 
     

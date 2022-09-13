@@ -21,7 +21,7 @@ class PlayerDetailsViewController: UIViewController {
         navigationItem.title = player?.fullName
         navigationController?.navigationBar.prefersLargeTitles = true
         positionLabel.text = player?.position
-        heightNumberLabel.text = player?.height
+        heightNumberLabel.text = player?.heigh
         teamButton.setTitle(player?.team.fullName, for: .normal)
     }
     

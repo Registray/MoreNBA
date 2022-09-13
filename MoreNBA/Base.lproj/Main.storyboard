@@ -77,6 +77,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TXV-ol-jOd"/>
+                    <connections>
+                        <outlet property="tableView" destination="u0O-yo-3hs" id="nxi-lA-m8a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

@@ -7,15 +7,38 @@
 
 import Foundation
 
-struct Player {
-    let firstname: String
-    let lastname: String
+struct PlayersResponse: Decodable {
+    let data: [Player]
+}
+
+struct Player: Decodable {
+    let firstName: String
+    let lastName: String
+    
     let team: Team
     let position: String
-    let height: String
+    
+    let heightFeet: Int?
+    let heightInches: Int?
+    
+    var heigh: String {
+        if let heightFeet = heightFeet, let heightInches = heightInches {
+            return "\(heightFeet)'\(heightInches)''"
+        } else {
+            return "Unknown"
+        }
+    }
     
     var fullName: String {
-        firstname + " " + lastname
+        firstName + " " + lastName
+    }
+    enum CodingKeys: String, CodingKey {
+        case firstName = "first_name"
+        case lastName = "last_name"
+        case position = "position"
+        case team = "team"
+        case heightFeet = "height_feet"
+        case heightInches = "height_inches"
     }
 }
 
