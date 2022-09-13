@@ -66,18 +66,43 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="huN-Zf-AfK"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Something Went Wrong Error" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sqf-Dr-KPq">
+                                <rect key="frame" x="95.5" y="464.5" width="223" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="pY0-5X-V3R">
+                                <rect key="frame" x="197" y="465" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZ0-iD-vzv">
+                                <rect key="frame" x="183.5" y="484.5" width="47" height="30"/>
+                                <state key="normal" title="Reload"/>
+                                <connections>
+                                    <action selector="reloadButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HTS-dM-PiO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="u0O-yo-3hs" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="0mK-6v-kBu"/>
+                            <constraint firstItem="ZZ0-iD-vzv" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="D0f-d6-NCR"/>
+                            <constraint firstItem="sqf-Dr-KPq" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="HPO-1d-ICl"/>
                             <constraint firstItem="u0O-yo-3hs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="V3z-Uv-aeC"/>
+                            <constraint firstItem="pY0-5X-V3R" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="VbF-Cw-7C7"/>
+                            <constraint firstItem="sqf-Dr-KPq" firstAttribute="top" secondItem="ZZ0-iD-vzv" secondAttribute="bottom" constant="-50" id="fbr-nA-Hru"/>
                             <constraint firstAttribute="bottom" secondItem="u0O-yo-3hs" secondAttribute="bottom" id="mEn-sg-sf5"/>
                             <constraint firstItem="u0O-yo-3hs" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ri7-xf-DM3"/>
+                            <constraint firstItem="pY0-5X-V3R" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="v0e-GM-Q9u"/>
+                            <constraint firstItem="sqf-Dr-KPq" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="vUs-PQ-EbS"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TXV-ol-jOd"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="pY0-5X-V3R" id="mNE-QO-3Yo"/>
+                        <outlet property="errorLabel" destination="sqf-Dr-KPq" id="qxe-0K-vbU"/>
+                        <outlet property="reloadButton" destination="ZZ0-iD-vzv" id="D5y-3G-8bu"/>
                         <outlet property="tableView" destination="u0O-yo-3hs" id="nxi-lA-m8a"/>
                     </connections>
                 </viewController>

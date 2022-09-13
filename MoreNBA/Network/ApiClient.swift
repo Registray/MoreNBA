@@ -20,7 +20,7 @@ class ApiClientImpl: ApiClient {
         let url = URL(string: "https://www.balldontlie.io/api/v1/players")!
         let urlRequest = URLRequest(url: url)
             let datatask = session.dataTask(with: urlRequest, completionHandler: { data, response, error in
-        
+                
             guard let data = data else {
                 completion(.failure(ApiError.noData))
                 return
